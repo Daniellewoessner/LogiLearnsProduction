@@ -1,0 +1,26 @@
+{
+    "name": "logilearns-production",
+    "version": "1.0.0",
+    "description": "LogiLearns Production Application",
+    "private": true,
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node server.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Daniellewoessner/LogiLearnsProduction.git"
+    },
+    "keywords": [
+      "logilearns",
+      "education"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      
+    },
+    "devDependencies": {
+      
+    }
+  }
