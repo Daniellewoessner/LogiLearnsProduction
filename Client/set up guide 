@@ -1,0 +1,178 @@
+# Logi Learns - Setup Guide
+
+Logi Learns is an educational application designed specifically for children with dyslexia. It includes a Garden Explorer game that teaches kids about plants, planning, and spatial understanding in a fun and engaging way.
+
+## Getting Started
+
+Follow these steps to set up and run the Logi Learns application:
+
+### Prerequisites
+
+- Node.js (v14.0.0 or higher)
+- npm (v6.0.0 or higher)
+
+### Installation
+
+1. Create a new project folder and extract all the provided files into it
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create the needed folder structure if not already present:
+   ```bash
+   mkdir -p public/assets/images/plants
+   mkdir -p public/assets/fonts
+   ```
+
+4. Download the OpenDyslexic font and place it in the fonts folder:
+   - Download from: https://opendyslexic.org/
+   - Place OpenDyslexic-Regular.otf and OpenDyslexic-Bold.otf in the `public/assets/fonts` directory
+
+5. Add plant images for the garden game:
+   - Create or find appropriate plant icons for: tomato, lettuce, carrot, basil, sunflower, radish, cucumber, corn, beans, and onion
+   - Save them as PNG files in the `public/assets/images/plants` directory
+   - Name them according to the references in the `plantService.ts` file (e.g., `tomato.png`, `lettuce.png`, etc.)
+
+6. Create a logo for the application:
+   - Save as `logo.png` in the `public/assets` directory
+
+### Running the Application
+
+Start the development server:
+```bash
+npm start
+```
+
+The application should now be running on [http://localhost:3000](http://localhost:3000)
+
+## Customization
+
+### Modifying Plants
+
+To add or modify plants, edit the `src/services/plantService.ts` file. The `mockPlants` array contains all the plants available in the garden game.
+
+### Adding New Missions
+
+To add new garden missions, edit the `initialMissions` array in the `src/pages/GardenGamePage.tsx` file.
+
+### Dyslexia-Friendly Settings
+
+The application includes several dyslexia-friendly features that can be customized:
+
+1. Font options: OpenDyslexic (default), Comic Sans, Arial
+2. Font size: Small, Medium (default), Large
+3. Line spacing: Tight, Normal (default), Wide
+4. Color themes: Neutral (default), Cream, Dark, Blue
+
+These settings can be modified in the Settings page (when implemented).
+
+## Project Structure
+
+- `src/App.tsx` - Main application component
+- `src/pages/` - Application pages
+  - `HomePage.tsx` - Landing page
+  - `GardenGamePage.tsx` - Garden Explorer game
+- `src/components/` - Reusable components
+- `src/services/` - Data services
+- `src/styles/` - CSS stylesheets
+- `src/types/` - TypeScript type definitions
+
+## Adding New Features
+
+### Reading Games Section
+
+To implement the Reading Games section:
+1. Create a new page component in `src/pages/ReadingGamesPage.tsx`
+2. Implement appropriate components and services
+3. Add proper routing in `App.tsx`
+
+### Phonics Lab Section
+
+To implement the Phonics Lab section:
+1. Create a new page component in `src/pages/PhonicsLabPage.tsx`
+2. Implement interactive phonics activities
+3. Add audio components for sound recognition exercises
+4. Integrate with the main navigation
+
+## Technical Information
+
+### State Management
+
+The Garden Explorer game uses React's built-in state management with useState and useEffect hooks. For a more complex application, consider implementing:
+
+- React Context (already used for dyslexia settings)
+- Redux for global state management
+- React Query for API data fetching and caching
+
+### Database Integration
+
+To persist user progress and settings:
+
+1. Set up a backend server (Node.js/Express recommended for JavaScript consistency)
+2. Create MongoDB or PostgreSQL database schemas for:
+   - User profiles
+   - Garden layouts
+   - Achievement progress
+   - Learning history
+
+3. Replace the mock services with actual API calls
+
+### Accessibility Features
+
+The application includes several accessibility features:
+
+- Dyslexia-friendly font options
+- Customizable text size and spacing
+- High-contrast color themes
+- Simple, clean UI with consistent navigation
+- Audio cues (to be implemented)
+- Clear, concise instructions
+
+## Game Elements
+
+### Garden Explorer Game
+
+The Garden Explorer game teaches:
+- Plant spacing and garden planning
+- Plant needs (sunlight, water)
+- Companion planting concepts
+- Growth cycles
+- Resource management
+
+Game mechanics include:
+- XP and leveling system
+- In-game currency (coins)
+- Missions and achievements
+- Plant growth simulation
+
+## Tips for Working with Children with Dyslexia
+
+When extending this application, keep these principles in mind:
+
+1. **Clear Typography**: Maintain readable fonts, appropriate sizing, and adequate spacing
+2. **Visual Support**: Use pictures and icons alongside text
+3. **Multisensory Approach**: Incorporate visual, auditory, and interactive elements
+4. **Clear Instructions**: Break information into smaller chunks
+5. **Progress Tracking**: Provide regular positive feedback
+6. **Consistency**: Maintain consistent layout and navigation
+7. **Reduce Cognitive Load**: Avoid cluttered screens or overwhelming amounts of text
+
+## Next Steps for Development
+
+1. Complete the Reading Games section with dyslexia-friendly activities
+2. Implement the Phonics Lab with sound-based exercises
+3. Add a user login and progress tracking system
+4. Create more garden missions and achievements
+5. Add audio narration for instructions and feedback
+6. Implement social features like garden sharing
+7. Create a parent/teacher dashboard for monitoring progress
+
+## License Information
+
+This application is provided for educational purposes.
+
+---
+
+Happy Learning with Logi Learns!

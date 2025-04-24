@@ -1,0 +1,613 @@
+/* ActivityComponent.css - Styled to match Logi Learn theme */
+
+.activity-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--app-bg-color);
+    color: var(--app-text-color);
+    font-family: var(--app-font-family);
+    font-size: var(--app-font-size-base);
+    line-height: var(--app-line-height);
+  }
+  
+  /* Breadcrumb navigation */
+  .breadcrumbs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .breadcrumbs a {
+    color: var(--app-accent-color);
+    text-decoration: none;
+  }
+  
+  .breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Loading and error states */
+  .loading-container, .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .loading-spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid var(--app-accent-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .back-button {
+    background-color: var(--app-accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .back-button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Activity header */
+  .activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .activity-title-section {
+    flex-grow: 1;
+    margin: 0 20px;
+  }
+  
+  .activity-title-section h1 {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    margin: 5px 0;
+    color: var(--app-accent-color);
+  }
+  
+  .activity-type-icon {
+    font-size: 1.8rem;
+    margin-right: 10px;
+  }
+  
+  .activity-type {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+  }
+  
+  /* Accessibility controls */
+  .accessibility-controls {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .text-control-button, .audio-button {
+    background-color: #ffffff;
+    border: 2px solid var(--app-accent-color);
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  
+  .text-control-button:hover, .audio-button:hover {
+    background-color: var(--app-accent-color);
+    color: white;
+  }
+  
+  .text-control-button:disabled {
+    border-color: #ccc;
+    color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Activity content layout */
+  .activity-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+  
+  .activity-info {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .activity-description, .learning-goals, .materials-needed {
+    margin-bottom: 25px;
+  }
+  
+  .activity-info h2 {
+    font-size: 1.4rem;
+    color: var(--app-accent-color);
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ffeb3b;
+    padding-bottom: 5px;
+  }
+  
+  .learning-goals ul, .materials-list {
+    padding-left: 25px;
+    margin-top: 15px;
+  }
+  
+  .learning-goals li, .materials-list li {
+    margin-bottom: 10px;
+    list-style-type: none;
+    position: relative;
+  }
+  
+  .learning-goals li:before {
+    content: "✓";
+    color: var(--app-accent-color);
+    position: absolute;
+    left: -25px;
+  }
+  
+  .material-check {
+    color: var(--app-accent-color);
+    margin-right: 8px;
+  }
+  
+  /* Activity instructions */
+  .activity-instructions {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    grid-column: 2;
+  }
+  
+  .activity-instructions h2 {
+    font-size: 1.4rem;
+    color: var(--app-accent-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffeb3b;
+    padding-bottom: 5px;
+  }
+  
+  .steps-progress {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #8bc34a;
+    transition: width 0.3s ease;
+  }
+  
+  .step-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .step-button {
+    background-color: var(--app-accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .step-button:hover {
+    opacity: 0.9;
+  }
+  
+  .step-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .step-counter {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .current-step {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+  }
+  
+  .current-step h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .current-step p {
+    margin-bottom: 15px;
+  }
+  
+  .listen-button {
+    background-color: transparent;
+    color: var(--app-accent-color);
+    border: 1px solid var(--app-accent-color);
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .complete-step-button {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .complete-step-button.completed {
+    background-color: #8bc34a;
+    color: white;
+  }
+  
+  /* Story player */
+  .story-player {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .story-player h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .story-container {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .story-start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .start-story-button {
+    background-color: #ffeb3b;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .start-story-button:hover {
+    background-color: #fdd835;
+  }
+  
+  .story-playing-screen {
+    padding: 20px;
+  }
+  
+  .story-text {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+  
+  .highlighted-text .highlighted {
+    background-color: #ffeb3b;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+  
+  .story-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .story-control-button {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .story-control-button:hover {
+    background-color: #d0d0d0;
+  }
+  
+  /* Adaptations section */
+  .adaptations-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    grid-column: 1 / span 2;
+  }
+  
+  .adaptations-section h2 {
+    font-size: 1.4rem;
+    color: var(--app-accent-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffeb3b;
+    padding-bottom: 5px;
+  }
+  
+  .adaptations-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .adaptation-item {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 10px 15px;
+    border-radius: 6px;
+  }
+  
+  .adaptation-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--app-accent-color);
+  }
+  
+  /* Completion tracker */
+  .completion-tracker {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    grid-column: 1 / span 2;
+    margin-bottom: 20px;
+  }
+  
+  .completion-tracker h2 {
+    font-size: 1.4rem;
+    color: var(--app-accent-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffeb3b;
+    padding-bottom: 5px;
+  }
+  
+  .completion-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .completion-step {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #e0e0e0;
+    transition: all 0.2s ease;
+  }
+  
+  .completion-step.completed {
+    border-left-color: #8bc34a;
+    background-color: rgba(139, 195, 74, 0.1);
+  }
+  
+  .completion-checkbox {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 50%;
+    margin-right: 12px;
+    font-weight: bold;
+  }
+  
+  .completion-step.completed .completion-checkbox {
+    background-color: #8bc34a;
+    color: white;
+    border-color: #8bc34a;
+  }
+  
+  .finish-activity-button {
+    display: block;
+    width: 100%;
+    background-color: #ffeb3b;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .finish-activity-button:hover:not(:disabled) {
+    background-color: #fdd835;
+  }
+  
+  .finish-activity-button:disabled {
+    background-color: #e0e0e0;
+    color: #888;
+    cursor: not-allowed;
+  }
+  
+  /* Navigation links section */
+  .navigation-links {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    grid-column: 1 / span 2;
+  }
+  
+  .navigation-links h2 {
+    font-size: 1.4rem;
+    color: var(--app-accent-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffeb3b;
+    padding-bottom: 5px;
+  }
+  
+  .navigation-links h3 {
+    font-size: 1.2rem;
+    margin: 20px 0 15px 0;
+  }
+  
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    border-left: 4px solid var(--app-accent-color);
+    transition: all 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+    transform: translateY(-3px);
+  }
+  
+  .link-icon {
+    font-size: 1.5rem;
+    margin-right: 12px;
+  }
+  
+  .related-activities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .related-activity {
+    display: flex;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+  
+  /* Different activity types with garden-themed colors */
+  .related-activity.visual {
+    border-left: 3px solid #2196f3; /* blue - water */
+  }
+  
+  .related-activity.tactile {
+    border-left: 3px solid #9c27b0; /* purple - flowers */
+  }
+  
+  .related-activity.auditory {
+    border-left: 3px solid #f44336; /* red - berries */
+  }
+  
+  .related-activity.kinesthetic {
+    border-left: 3px solid #4caf50; /* green - plants */
+  }
+  
+  .related-activity.discussion {
+    border-left: 3px solid #ff9800; /* orange - sunshine */
+  }
+  
+  .related-activity:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive adaptations */
+  @media (max-width: 768px) {
+    .activity-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .activity-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .activity-instructions {
+      grid-column: 1;
+    }
+    
+    .adaptations-section, .completion-tracker, .navigation-links {
+      grid-column: 1;
+    }
+    
+    .adaptations-list, .completion-steps, .links-grid {
+      grid-template-columns: 1fr;
+    }
+  }

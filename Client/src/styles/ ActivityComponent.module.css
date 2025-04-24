@@ -1,0 +1,612 @@
+/* ActivityComponent.module.css */
+/* Dyslexia-friendly base styles */
+.activityContainer {
+  font-family: var(--app-font-family);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--app-bg-color);
+  color: var(--app-text-color);
+  line-height: var(--app-line-height);
+}
+
+/* Breadcrumb navigation */
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.breadcrumbs a {
+  color: var(--app-accent-color);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* Loading and error states */
+.loadingContainer, .errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  padding: 40px;
+}
+
+.loadingSpinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid var(--app-accent-color);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.backButton {
+  background-color: var(--app-accent-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.backButton:hover {
+  opacity: 0.9;
+}
+
+/* Activity header */
+.activityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activityTitleSection {
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+.activityTitleSection h1 {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  margin: 5px 0;
+  color: var(--app-accent-color);
+}
+
+.activityTypeIcon {
+  font-size: 1.8rem;
+  margin-right: 10px;
+}
+
+.activityType {
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Accessibility controls */
+.accessibilityControls {
+  display: flex;
+  gap: 10px;
+}
+
+.textControlButton, .audioButton {
+  background-color: #ffffff;
+  border: 2px solid var(--app-accent-color);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.textControlButton:hover, .audioButton:hover {
+  background-color: var(--app-accent-color);
+  color: white;
+}
+
+.textControlButton:disabled {
+  border-color: #ccc;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Activity content layout */
+.activityContent {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.activityInfo {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.activityDescription, .learningGoals, .materialsNeeded {
+  margin-bottom: 25px;
+}
+
+.activityInfo h2 {
+  font-size: 1.4rem;
+  color: var(--app-accent-color);
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ffeb3b;
+  padding-bottom: 5px;
+}
+
+.learningGoals ul, .materialsList {
+  padding-left: 25px;
+  margin-top: 15px;
+  list-style-position: outside;
+}
+
+.learningGoals li, .materialsList li {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.learningGoals li:before {
+  content: "✓";
+  color: var(--app-accent-color);
+  position: absolute;
+  left: -25px;
+}
+
+.materialCheck {
+  color: var(--app-accent-color);
+  margin-right: 8px;
+}
+
+/* Activity instructions */
+.activityInstructions {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  grid-column: 2;
+}
+
+.activityInstructions h2 {
+  font-size: 1.4rem;
+  color: var(--app-accent-color);
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ffeb3b;
+  padding-bottom: 5px;
+}
+
+.stepsProgress {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: #8bc34a;
+  transition: width 0.3s ease;
+}
+
+.stepNavigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.stepButton {
+  background-color: var(--app-accent-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.stepButton:hover {
+  opacity: 0.9;
+}
+
+.stepButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.stepCounter {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.currentStep {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.currentStep h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.currentStep p {
+  margin-bottom: 15px;
+}
+
+.listenButton {
+  background-color: transparent;
+  color: var(--app-accent-color);
+  border: 1px solid var(--app-accent-color);
+  border-radius: 15px;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.completeStepButton {
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.completeStepButton.completed {
+  background-color: #8bc34a;
+  color: white;
+}
+
+/* Story player */
+.storyPlayer {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.storyPlayer h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.storyContainer {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.storyStartScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.startStoryButton {
+  background-color: #ffeb3b;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.startStoryButton:hover {
+  background-color: #fdd835;
+}
+
+.storyPlayingScreen {
+  padding: 20px;
+}
+
+.storyText {
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.highlightedText .highlighted {
+  background-color: #ffeb3b;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.storyControls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.storyControlButton {
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.storyControlButton:hover {
+  background-color: #d0d0d0;
+}
+
+/* Adaptations section */
+.adaptationsSection {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  grid-column: 1 / span 2;
+}
+
+.adaptationsSection h2 {
+  font-size: 1.4rem;
+  color: var(--app-accent-color);
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ffeb3b;
+  padding-bottom: 5px;
+}
+
+.adaptationsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.adaptationItem {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.adaptationIcon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+  color: var(--app-accent-color);
+}
+
+/* Completion tracker */
+.completionTracker {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  grid-column: 1 / span 2;
+  margin-bottom: 20px;
+}
+
+.completionTracker h2 {
+  font-size: 1.4rem;
+  color: var(--app-accent-color);
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ffeb3b;
+  padding-bottom: 5px;
+}
+
+.completionSteps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.completionStep {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.completionStep.completed {
+  border-left-color: #8bc34a;
+  background-color: rgba(139, 195, 74, 0.1);
+}
+
+.completionCheckbox {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  margin-right: 12px;
+  font-weight: bold;
+}
+
+.completionStep.completed .completionCheckbox {
+  background-color: #8bc34a;
+  color: white;
+  border-color: #8bc34a;
+}
+
+.finishActivityButton {
+  display: block;
+  width: 100%;
+  background-color: #ffeb3b;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.finishActivityButton:hover:not(:disabled) {
+  background-color: #fdd835;
+}
+
+.finishActivityButton:disabled {
+  background-color: #e0e0e0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* Navigation links section */
+.navigationLinks {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  grid-column: 1 / span 2;
+}
+
+.navigationLinks h2 {
+  font-size: 1.4rem;
+  color: var(--app-accent-color);
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ffeb3b;
+  padding-bottom: 5px;
+}
+
+.navigationLinks h3 {
+  font-size: 1.2rem;
+  margin: 20px 0 15px 0;
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  border-left: 4px solid var(--app-accent-color);
+  transition: all 0.2s ease;
+}
+
+.navLink:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+  transform: translateY(-3px);
+}
+
+.linkIcon {
+  font-size: 1.5rem;
+  margin-right: 12px;
+}
+
+.relatedActivities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.relatedActivity {
+  display: flex;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 10px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+/* Different activity types with garden-themed colors */
+.visual {
+  border-left: 3px solid #2196f3; /* blue - water */
+}
+
+.tactile {
+  border-left: 3px solid #9c27b0; /* purple - flowers */
+}
+
+.auditory {
+  border-left: 3px solid #f44336; /* red - berries */
+}
+
+.kinesthetic {
+  border-left: 3px solid #4caf50; /* green - plants */
+}
+
+.discussion {
+  border-left: 3px solid #ff9800; /* orange - sunshine */
+}
+
+.relatedActivity:hover {
+  background-color: rgba(76, 175, 80, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive adaptations */
+@media (max-width: 768px) {
+  .activityHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .activityContent {
+    grid-template-columns: 1fr;
+  }
+  
+  .activityInstructions {
+    grid-column: 1;
+  }
+  
+  .adaptationsSection, .completionTracker, .navigationLinks {
+    grid-column: 1;
+  }
+  
+  .adaptationsList, .completionSteps, .linksGrid {
+    grid-template-columns: 1fr;
+  }
+}

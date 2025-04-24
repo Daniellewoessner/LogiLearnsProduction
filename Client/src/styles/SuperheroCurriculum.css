@@ -1,0 +1,1500 @@
+/* SuperheroCurriculum.css - Complete stylesheet for the superhero-themed curriculum */
+
+/* Base styles with dyslexia-friendly defaults */
+:root {
+    --primary-color: #3366cc;
+    --secondary-color: #ff9933;
+    --accent-color: #66cc99;
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --heading-color: #222222;
+    --link-color: #0066cc;
+    --card-background: #f9f9f9;
+    --card-border: #e0e0e0;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --error-color: #f44336;
+    --info-color: #2196f3;
+    
+    /* High contrast mode variables */
+    --hc-background-color: #f7f3e9;
+    --hc-text-color: #000000;
+    --hc-link-color: #0000cc;
+    --hc-card-background: #ffffff;
+    --hc-card-border: #000000;
+    --hc-primary-color: #003399;
+    --hc-secondary-color: #cc6600;
+    --hc-accent-color: #006633;
+  }
+  
+  /* Typography */
+  body {
+    font-family: 'Comic Sans MS', 'OpenDyslexic', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 0.12em;
+    color: var(--text-color);
+    background-color: var(--background-color);
+  }
+  
+  .high-contrast {
+    background-color: var(--hc-background-color);
+    color: var(--hc-text-color);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+  }
+  
+  h1 {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+  }
+  
+  h3 {
+    font-size: 1.5em;
+    color: var(--secondary-color);
+  }
+  
+  h4 {
+    font-size: 1.3em;
+  }
+  
+  p {
+    margin-bottom: 1em;
+  }
+  
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .high-contrast a {
+    color: var(--hc-link-color);
+    text-decoration: underline;
+  }
+  
+  /* Main container */
+  .curriculum-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+  
+  .high-contrast .curriculum-container {
+    background-color: var(--hc-background-color);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--hc-text-color);
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumbs {
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .breadcrumbs a {
+    display: inline-block;
+  }
+  
+  .breadcrumbs span:after {
+    content: ">";
+    margin-left: 8px;
+  }
+  
+  .breadcrumbs span:last-child:after {
+    content: "";
+  }
+  
+  /* Curriculum Header */
+  .curriculum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .curriculum-header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+    pointer-events: none;
+  }
+  
+  .high-contrast .curriculum-header {
+    background-color: var(--hc-primary-color);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+  }
+  
+  .logo-container h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+  }
+  
+  .logo-container h2 {
+    margin: 0;
+    font-size: 1.4em;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Accessibility Controls */
+  .accessibility-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    z-index: 1;
+  }
+  
+  .text-controls, .spacing-controls, .contrast-control, .audio-control {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .text-control-button, .spacing-control-button, .contrast-button, .audio-button {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .text-control-button:hover, .spacing-control-button:hover, 
+  .contrast-button:hover, .audio-button:hover {
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .text-control-button:disabled, .spacing-control-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .high-contrast .text-control-button, .high-contrast .spacing-control-button, 
+  .high-contrast .contrast-button, .high-contrast .audio-button {
+    background-color: white;
+    color: var(--hc-primary-color);
+    border: 2px solid black;
+  }
+  
+  /* Week Navigation */
+  .week-navigation {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .week-navigation:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 10px, transparent 10px, transparent 20px);
+    pointer-events: none;
+  }
+  
+  .high-contrast .week-navigation {
+    background-color: var(--hc-secondary-color);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  .week-navigation h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    position: relative;
+  }
+  
+  .week-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .week-button {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .week-button:hover {
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .week-button.active {
+    background-color: white;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .week-button.active:after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid white;
+  }
+  
+  .high-contrast .week-button {
+    background-color: white;
+    color: var(--hc-secondary-color);
+    border: 2px solid black;
+  }
+  
+  .high-contrast .week-button.active {
+    background-color: var(--hc-accent-color);
+    color: white;
+  }
+  
+  /* Week Content */
+  .week-content {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .high-contrast .week-content {
+    background-color: var(--hc-card-background);
+    border: 2px solid var(--hc-text-color);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 10px;
+  }
+  
+  .week-header h2 {
+    margin: 0;
+    color: var(--primary-color);
+  }
+  
+  .week-header h3 {
+    margin: 0;
+    color: var(--secondary-color);
+  }
+  
+  .play-description {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+  }
+  
+  .play-description:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+  }
+  
+  .high-contrast .play-description {
+    background-color: var(--hc-accent-color);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  .week-description {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+  }
+  
+  .week-image {
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--secondary-color);
+  }
+  
+  .high-contrast .week-image {
+    border: 3px solid var(--hc-text-color);
+  }
+  
+  /* Activities Section */
+  .activities-section {
+    margin-bottom: 30px;
+  }
+  
+  .activities-section h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.6em;
+    text-align: center;
+    position: relative;
+  }
+  
+  .activities-section h3:before,
+  .activities-section h3:after {
+    content: "★";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+  }
+  
+  .activities-section h3:before {
+    left: 20%;
+  }
+  
+  .activities-section h3:after {
+    right: 20%;
+  }
+  
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .activity-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+  }
+  
+  .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .high-contrast .activity-card {
+    background-color: var(--hc-card-background);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  .activity-type-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    background: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .activity-visual .activity-type-icon {
+    background: #e57373; /* Red */
+  }
+  
+  .activity-auditory .activity-type-icon {
+    background: #64b5f6; /* Blue */
+  }
+  
+  .activity-tactile .activity-type-icon {
+    background: #81c784; /* Green */
+  }
+  
+  .activity-kinesthetic .activity-type-icon {
+    background: #ffb74d; /* Orange */
+  }
+  
+  .activity-discussion .activity-type-icon {
+    background: #9575cd; /* Purple */
+  }
+  
+  .high-contrast .activity-type-icon {
+    border: 2px solid black;
+  }
+  
+  .activity-card h4 {
+    background-color: var(--primary-color);
+    color: white;
+    margin: 0;
+    padding: 15px;
+    font-size: 1.3em;
+    padding-right: 50px; /* Make room for the icon */
+  }
+  
+  .activity-visual h4 {
+    background-color: #ef5350; /* Red */
+  }
+  
+  .activity-auditory h4 {
+    background-color: #42a5f5; /* Blue */
+  }
+  
+  .activity-tactile h4 {
+    background-color: #66bb6a; /* Green */
+  }
+  
+  .activity-kinesthetic h4 {
+    background-color: #ffa726; /* Orange */
+  }
+  
+  .activity-discussion h4 {
+    background-color: #7e57c2; /* Purple */
+  }
+  
+  .high-contrast .activity-card h4 {
+    border-bottom: 2px solid var(--hc-text-color);
+  }
+  
+  .activity-card p {
+    padding: 15px;
+    margin: 0;
+  }
+  
+  .activity-details {
+    padding: 15px;
+    border-top: 1px dashed var(--card-border);
+  }
+  
+  .materials, .instructions, .adaptations {
+    margin-bottom: 15px;
+  }
+  
+  .activity-details h5 {
+    margin: 0 0 5px 0;
+    color: var(--primary-color);
+    font-size: 1.1em;
+  }
+  
+  .activity-details ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  .activity-details li {
+    margin-bottom: 5px;
+  }
+  
+  .play-instructions {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 3px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+  }
+  
+  .play-instructions:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .high-contrast .play-instructions {
+    background-color: var(--hc-accent-color);
+    border: 1px solid var(--hc-text-color);
+  }
+  
+  .view-activity-button {
+    display: block;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  .view-activity-button:hover {
+    background-color: var(--secondary-color);
+    text-decoration: none;
+  }
+  
+  .activity-visual .view-activity-button {
+    background-color: #ef5350; /* Red */
+  }
+  
+  .activity-visual .view-activity-button:hover {
+    background-color: #c62828; /* Darker red */
+  }
+  
+  .activity-auditory .view-activity-button {
+    background-color: #42a5f5; /* Blue */
+  }
+  
+  .activity-auditory .view-activity-button:hover {
+    background-color: #1565c0; /* Darker blue */
+  }
+  
+  .activity-tactile .view-activity-button {
+    background-color: #66bb6a; /* Green */
+  }
+  
+  .activity-tactile .view-activity-button:hover {
+    background-color: #2e7d32; /* Darker green */
+  }
+  
+  .activity-kinesthetic .view-activity-button {
+    background-color: #ffa726; /* Orange */
+  }
+  
+  .activity-kinesthetic .view-activity-button:hover {
+    background-color: #ef6c00; /* Darker orange */
+  }
+  
+  .activity-discussion .view-activity-button {
+    background-color: #7e57c2; /* Purple */
+  }
+  
+  .activity-discussion .view-activity-button:hover {
+    background-color: #4527a0; /* Darker purple */
+  }
+  
+  .high-contrast .view-activity-button {
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  /* Take Home Project Section */
+  .take-home-project {
+    margin-bottom: 30px;
+  }
+  
+  .take-home-project h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.6em;
+    text-align: center;
+  }
+  
+  .project-card {
+    background-color: var(--secondary-color);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .project-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  
+  .high-contrast .project-card {
+    background-color: var(--hc-secondary-color);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  .project-card p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .view-project-button {
+    display: inline-block;
+    background-color: white;
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .view-project-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }
+  
+  .high-contrast .view-project-button {
+    background-color: white;
+    color: var(--hc-secondary-color);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  /* Navigation Buttons */
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .prev-week-button, .next-week-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .prev-week-button:hover, .next-week-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .prev-week-button:disabled, .next-week-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .high-contrast .prev-week-button, .high-contrast .next-week-button {
+    background-color: var(--hc-primary-color);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  /* Additional Navigation */
+  .additional-navigation {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .additional-navigation:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 30%), 
+                radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 30%);
+    pointer-events: none;
+  }
+  
+  .high-contrast .additional-navigation {
+    background-color: var(--hc-accent-color);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  .additional-navigation h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .nav-button {
+    display: inline-block;
+    background-color: white;
+    color: var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  
+  .nav-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+  }
+  
+  .high-contrast .nav-button {
+    background-color: white;
+    color: var(--hc-accent-color);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  /* Story Player Specific Styles */
+  .story-player {
+    background-color: #fff9e6;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--secondary-color);
+    border-right: 5px solid var(--secondary-color);
+  }
+  
+  .high-contrast .story-player {
+    background-color: white;
+    border: 3px solid var(--hc-text-color);
+  }
+  
+  .story-text {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .high-contrast .story-text {
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  .story-text p {
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+  }
+  
+  .story-text p.active {
+    background-color: #fff9c4;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .high-contrast .story-text p.active {
+    background-color: #ffeb3b;
+    border: 1px solid black;
+  }
+  
+  .story-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .story-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .story-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .high-contrast .story-button {
+    background-color: var(--hc-secondary-color);
+    border: 2px solid var(--hc-text-color);
+  }
+  
+  .progress-bar {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: width 0.2s linear;
+  }
+  
+  .high-contrast .progress-bar {
+    border: 1px solid var(--hc-text-color);
+  }
+  
+  .high-contrast .progress-fill {
+    background-color: var(--hc-secondary-color);
+  }
+  
+  /* Architecture section styles */
+  .architecture-section {
+    margin-top: 20px;
+  }
+  
+  .architecture-container {
+    padding: 15px;
+    background-color: #f0f8ff;
+    border: 2px solid #3366cc;
+    border-radius: 10px;
+  }
+  
+  .high-contrast .architecture-container {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .curriculum-header {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .logo-container {
+      margin-bottom: 15px;
+    }
+    
+    .accessibility-controls {
+      justify-content: center;
+    }
+    
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .navigation-buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .prev-week-button, .next-week-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  /* Character animations for story player */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .character-bounce {
+    display: inline-block;
+    font-size: 3em;
+    animation: bounce 1s infinite;
+  }
+  
+  /* Special effects for activities */
+  .activity-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, 
+      var(--primary-color) 0%, 
+      var(--secondary-color) 50%, 
+      var(--accent-color) 100%
+    );
+  }
+  
+  .activity-visual::after {
+    background: linear-gradient(90deg, #e57373, #ef5350, #f44336);
+  }
+  
+  .activity-auditory::after {
+    background: linear-gradient(90deg, #81d4fa, #42a5f5, #2196f3);
+  }
+  
+  .activity-tactile::after {
+    background: linear-gradient(90deg, #a5d6a7, #66bb6a, #4caf50);
+  }
+  
+  .activity-kinesthetic::after {
+    background: linear-gradient(90deg, #ffe082, #ffa726, #ff9800);
+  }
+  
+  .activity-discussion::after {
+    background: linear-gradient(90deg   , #ba68c8, #ab47bc, #9c27b0);
+    }
+    .activity-discussion::after {
+        background: linear-gradient(90deg, #b39ddb, #7e57c2, #673ab7);
+      }
+      
+      /* Print styles */
+      @media print {
+        .curriculum-container {
+          box-shadow: none;
+          padding: 0;
+        }
+        
+        .accessibility-controls,
+        .week-buttons,
+        .play-description,
+        .play-instructions,
+        .view-activity-button,
+        .view-project-button,
+        .navigation-buttons,
+        .additional-navigation {
+          display: none !important;
+        }
+        
+        .week-content, 
+        .activity-card,
+        .project-card {
+          box-shadow: none;
+          break-inside: avoid;
+        }
+        
+        .activities-grid {
+          display: block;
+        }
+        
+        .activity-card {
+          margin-bottom: 20px;
+          page-break-inside: avoid;
+        }
+        
+        h1, h2, h3, h4 {
+          page-break-after: avoid;
+        }
+
+
+        /* Add these CSS rules to fix centering issues */
+
+/* Center text in headings */
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+  }
+  
+  /* Center the breadcrumbs */
+  .breadcrumbs {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Center content in the curriculum header */
+  .curriculum-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .logo-container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Center accessibility controls */
+  .accessibility-controls {
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  /* Center week navigation */
+  .week-navigation h3 {
+    text-align: center;
+  }
+  
+  .week-buttons {
+    justify-content: center;
+  }
+  
+  /* Center week content elements */
+  .week-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .week-description {
+    text-align: center;
+  }
+  
+  /* Center activity cards content */
+  .activity-card h4 {
+    text-align: center;
+    padding-right: 15px; /* Reset padding to center properly */
+  }
+  
+  .activity-card p {
+    text-align: center;
+  }
+  
+  /* Position the activity type icon at top right */
+  .activity-type-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  /* Make sure buttons are centered */
+  .navigation-buttons {
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Center additional navigation section */
+  .additional-navigation h3 {
+    text-align: center;
+  }
+  
+  .nav-buttons {
+    justify-content: center;
+  }
+  
+  /* Center architecture diagram */
+  .architecture-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .architecture-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Make SVG centered in its container */
+  svg {
+    display: block;
+    margin: 0 auto;
+  }
+  /* Container Display Fixes */
+
+/* Main container fixes */
+.curriculum-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: block; /* Ensure block display */
+    box-sizing: border-box; /* Include padding in width calculation */
+    width: 100%;
+  }
+  
+  /* Fix header layout - keep it horizontal on larger screens */
+  @media (min-width: 768px) {
+    .curriculum-header {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+    
+    .logo-container {
+      text-align: left;
+      margin-bottom: 0;
+    }
+    
+    .accessibility-controls {
+      justify-content: flex-end;
+    }
+  }
+  
+  /* Activities Grid Fixes */
+  .activities-section {
+    margin-bottom: 30px;
+    display: block; /* Ensure block display */
+    width: 100%;
+  }
+  
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+  
+  /* Activity Card Fixes */
+  .activity-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .activity-card h4 {
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    padding-right: 50px; /* Accommodate the icon */
+    margin: 0;
+  }
+  
+  .activity-card p {
+    padding: 15px;
+    margin: 0;
+    text-align: left;
+  }
+  
+  /* Fix for activity button access */
+  .view-activity-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto; /* Push to bottom of flex container */
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  /* Ensure proper display of activity type icon */
+  .activity-type-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5; /* Ensure it's above other elements */
+  }
+  
+  /* Navigation Button Fixes */
+  .navigation-buttons {
+    display: flex;
+    justify-content: space-between; /* Space between prev/next buttons */
+    width: 100%;
+    margin-top: 30px;
+  }
+  
+  @media (min-width: 768px) {
+    .prev-week-button, .next-week-button {
+      width: auto; /* Auto width on larger screens */
+    }
+  }
+  
+  /* Architecture Diagram Container Fix */
+  .architecture-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+  }
+  
+  .architecture-container svg {
+    max-width: 100%;
+    height: auto;
+  }
+      }
+/* Add these styles to your SuperheroCurriculum.css file */
+
+/* Reset and fix for activity cards */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .activity-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Activity card header */
+  .activity-card h4 {
+    background-color: var(--primary-color);
+    color: white;
+    margin: 0;
+    padding: 15px;
+    font-size: 1.2rem;
+    padding-right: 50px; /* Make room for icon */
+    text-align: left;
+  }
+  
+  /* Type-specific header colors */
+  .activity-visual h4 {
+    background-color: #e57373; /* Red */
+  }
+  
+  .activity-auditory h4 {
+    background-color: #64b5f6; /* Blue */
+  }
+  
+  .activity-tactile h4 {
+    background-color: #81c784; /* Green */
+  }
+  
+  .activity-kinesthetic h4 {
+    background-color: #ffb74d; /* Orange */
+  }
+  
+  .activity-discussion h4 {
+    background-color: #9575cd; /* Purple */
+  }
+  
+  /* Activity type icon */
+  .activity-type-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Activity content */
+  .activity-card p {
+    padding: 15px;
+    margin: 0;
+    flex-grow: 0;
+    text-align: left;
+  }
+  
+  /* Activity details section */
+  .activity-details {
+    padding: 0 15px 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .materials, .instructions, .adaptations {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .activity-details h5 {
+    margin: 10px 0 5px;
+    color: var(--primary-color);
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .activity-details ul {
+    margin: 0;
+    padding-left: 20px;
+    text-align: left;
+  }
+  
+  .activity-details li {
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  /* Activity button - fixed at bottom */
+  .view-activity-button {
+    display: block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    transition: background-color 0.2s;
+  }
+  
+  .view-activity-button:hover {
+    background-color: var(--secondary-color);
+    text-decoration: none;
+  }
+  
+  /* Type-specific button colors */
+  .activity-visual .view-activity-button {
+    background-color: #ef5350; /* Red */
+  }
+  
+  .activity-visual .view-activity-button:hover {
+    background-color: #c62828; /* Darker red */
+  }
+  
+  .activity-auditory .view-activity-button {
+    background-color: #42a5f5; /* Blue */
+  }
+  
+  .activity-auditory .view-activity-button:hover {
+    background-color: #1565c0; /* Darker blue */
+  }
+  
+  .activity-tactile .view-activity-button {
+    background-color: #66bb6a; /* Green */
+  }
+  
+  .activity-tactile .view-activity-button:hover {
+    background-color: #2e7d32; /* Darker green */
+  }
+  
+  .activity-kinesthetic .view-activity-button {
+    background-color: #ffa726; /* Orange */
+  }
+  
+  .activity-kinesthetic .view-activity-button:hover {
+    background-color: #ef6c00; /* Darker orange */
+  }
+  
+  .activity-discussion .view-activity-button {
+    background-color: #7e57c2; /* Purple */
+  }
+  
+  .activity-discussion .view-activity-button:hover {
+    background-color: #4527a0; /* Darker purple */
+  }
+  
+  /* Audio button styling */
+  .play-instructions {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .play-instructions:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* High contrast mode adaptations */
+  .high-contrast .activity-card {
+    border: 2px solid black;
+  }
+  
+  .high-contrast .activity-card h4 {
+    border-bottom: 2px solid black;
+  }
+  
+  .high-contrast .activity-type-icon {
+    border: 2px solid black;
+  }
+  
+  .high-contrast .view-activity-button {
+    border: 2px solid black;
+  }
+  
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .activities-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }

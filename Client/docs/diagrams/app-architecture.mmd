@@ -1,0 +1,42 @@
+flowchart TD
+    subgraph "User Interface Components"
+        A[SuperheroPage] --> B[ActivityPage]
+        A --> C[TeacherDashboard]
+        B --> D[StoryPlayer]
+        C --> D
+    end
+
+    subgraph "Accessibility Features"
+        E[FontSize Controls] --> A
+        F[LineSpacing Controls] --> A
+        G[LetterSpacing Controls] --> A
+        H[HighContrast Mode] --> A
+        I[Audio Narration] --> D
+        J[Text Highlighting] --> D
+    end
+
+    subgraph "Data Models"
+        K[Curriculum Weeks] --> A
+        L[Activities] --> K
+        M[Stories] --> L
+        N[Lesson Plans] --> C
+    end
+
+    subgraph "Adaptation Types"
+        O[Visual] --> L
+        P[Auditory] --> L
+        Q[Tactile] --> L
+        R[Kinesthetic] --> L
+        S[Discussion] --> L
+    end
+
+    style A fill:#f9d5e5,stroke:#333,stroke-width:2px
+    style B fill:#eeeeee,stroke:#333,stroke-width:2px
+    style C fill:#eeeeee,stroke:#333,stroke-width:2px
+    style D fill:#d5f9e8,stroke:#333,stroke-width:2px
+    style E fill:#ffd1dc,stroke:#333,stroke-width:1px
+    style F fill:#ffd1dc,stroke:#333,stroke-width:1px
+    style G fill:#ffd1dc,stroke:#333,stroke-width:1px
+    style H fill:#ffd1dc,stroke:#333,stroke-width:1px
+    style I fill:#d1ffdc,stroke:#333,stroke-width:1px
+    style J fill:#d1ffdc,stroke:#333,stroke-width:1px

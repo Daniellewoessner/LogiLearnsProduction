@@ -1,0 +1,222 @@
+/* StoryPlayer.css */
+
+.story-player {
+    background-color: #fff9e6;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    border-left: 5px solid #ff9933;
+    border-right: 5px solid #ff9933;
+    text-align: center;
+  }
+  
+  .high-contrast .story-player {
+    background-color: white;
+    border: 3px solid #000000;
+  }
+  
+  .story-title {
+    color: #3366cc;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+  }
+  
+  .high-contrast .story-title {
+    color: #000066;
+  }
+  
+  /* Character animation */
+  .character-container {
+    margin: 15px 0;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .character-bounce {
+    font-size: 4rem;
+    display: inline-block;
+    animation: bounce 1s infinite;
+  }
+  
+  .character-static {
+    font-size: 4rem;
+    display: inline-block;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  /* Story text area */
+  .story-text {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .high-contrast .story-text {
+    border: 2px solid #000000;
+  }
+  
+  .story-text p {
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .story-text p.active {
+    background-color: #fff9c4;
+    font-weight: bold;
+  }
+  
+  .high-contrast .story-text p.active {
+    background-color: #ffeb3b;
+    border: 1px solid black;
+  }
+  
+  /* Audio controls */
+  .story-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .play-button {
+    background-color: #ff9933;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .play-button:hover {
+    background-color: #ff8500;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .high-contrast .play-button {
+    background-color: #cc6600;
+    border: 2px solid #000000;
+  }
+  
+  .control-button {
+    background-color: #e0e0e0;
+    color: #333333;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+  }
+  
+  .control-button:hover {
+    background-color: #d0d0d0;
+  }
+  
+  .high-contrast .control-button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+  }
+  
+  /* Toggle text button */
+  .toggle-text-button {
+    background-color: #3366cc;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+  }
+  
+  .toggle-text-button:hover {
+    background-color: #2855aa;
+  }
+  
+  .high-contrast .toggle-text-button {
+    background-color: #000066;
+    border: 1px solid #000000;
+  }
+  
+  /* Progress bar */
+  .progress-container {
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #3366cc;
+    transition: width 0.2s linear;
+  }
+  
+  .high-contrast .progress-container {
+    border: 1px solid #000000;
+  }
+  
+  .high-contrast .progress-bar {
+    background-color: #000066;
+  }
+  
+  .progress-text {
+    font-size: 0.8rem;
+    color: #666666;
+  }
+  
+  .high-contrast .progress-text {
+    color: #000000;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .story-player {
+      padding: 15px;
+      max-width: 100%;
+    }
+    
+    .story-title {
+      font-size: 1.5rem;
+    }
+    
+    .character-bounce,
+    .character-static {
+      font-size: 3rem;
+    }
+    
+    .story-controls {
+      flex-wrap: wrap;
+    }
+    
+    .play-button {
+      order: -1;
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+  }

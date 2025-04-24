@@ -1,0 +1,593 @@
+/* Garden Game Styles - Optimized for children with dyslexia */
+
+:root {
+    /* Game-specific colors */
+    --garden-primary: #4caf50;
+    --garden-secondary: #2196f3;
+    --garden-accent: #ff9800;
+    --garden-light: #e8f5e9;
+    --garden-dark: #1b5e20;
+    
+    /* Plant growth stage colors */
+    --stage-0-color: #e8f5e9;
+    --stage-1-color: #c8e6c9;
+    --stage-2-color: #a5d6a7;
+    --stage-3-color: #81c784;
+  }
+  
+  /* Main Container */
+  .garden-game-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--app-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Game Header */
+  .game-header {
+    background-color: var(--garden-light);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .game-header h1 {
+    color: var(--garden-dark);
+    margin-bottom: 10px;
+    font-size: 32px;
+  }
+  
+  .intro-text {
+    color: var(--app-text-color);
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .game-stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+  }
+  
+  .current-mission {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--garden-secondary);
+    max-width: 400px;
+    text-align: left;
+  }
+  
+  .mission-reward {
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--garden-dark);
+  }
+  
+  /* Tab Navigation */
+  .game-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .tab-button {
+    padding: 12px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.2s;
+  }
+  
+  .tab-button.active {
+    background-color: var(--garden-primary);
+    color: white;
+  }
+  
+  .tab-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .tab-button.active:hover {
+    background-color: var(--garden-dark);
+  }
+  
+  /* Main Content Areas */
+  .game-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Garden Layout */
+  .garden-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .garden-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .controls-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Plot Size Selector */
+  .plot-size-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .plot-size-selector label {
+    font-weight: bold;
+  }
+  
+  .plot-size-select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-family: var(--app-font-family);
+    font-size: 16px;
+  }
+  
+  /* Buttons */
+  .clear-button, .evaluate-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: var(--app-font-family);
+    font-size: 16px;
+    transition: background-color 0.2s;
+  }
+  
+  .clear-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .evaluate-button {
+    background-color: var(--garden-secondary);
+    color: white;
+  }
+  
+  .clear-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .evaluate-button:hover {
+    background-color: #1976d2;
+  }
+  
+  /* Garden Name Input */
+  .garden-name-input {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .garden-name-field {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-family: var(--app-font-family);
+    font-size: 16px;
+  }
+  
+  /* Selected Plant Info */
+  .selected-plant-info {
+    background-color: var(--garden-light);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .selected-plant-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .selected-plant-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--garden-primary);
+  }
+  
+  .selected-plant-image img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+  }
+  
+  .selected-plant-info h3 {
+    margin: 0;
+    color: var(--garden-dark);
+  }
+  
+  .plant-quick-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .plant-cost {
+    display: inline-block;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  .coin-icon {
+    color: #ffc107;
+    margin-right: 5px;
+  }
+  
+  /* Garden Grid */
+  .garden-area {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .garden-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .garden-title h3 {
+    font-size: 24px;
+    color: var(--garden-dark);
+    margin: 0 0 5px 0;
+  }
+  
+  .garden-grid-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .garden-grid {
+    display: grid;
+    grid-gap: 10px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .grid-cell {
+    background-color: #f5f5f5;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  
+  .grid-cell:hover {
+    background-color: var(--garden-light);
+    border-color: var(--garden-primary);
+  }
+  
+  .grid-cell.needs-water {
+    background-color: #fff3e0;
+    border-color: #ff9800;
+  }
+  
+  .plant-in-grid {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .plant-image-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .plant-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.2s;
+  }
+  
+  .plant-in-grid .plant-name {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #333;
+  }
+  
+  /* Growth stages */
+  .plant-in-grid.growth-stage-0 img {
+    transform: scale(0.7);
+  }
+  
+  .plant-in-grid.growth-stage-1 img {
+    transform: scale(0.85);
+  }
+  
+  .plant-in-grid.growth-stage-2 img {
+    transform: scale(1);
+  }
+  
+  .plant-in-grid.growth-stage-3 img {
+    transform: scale(1.15);
+    filter: saturate(1.2);
+  }
+  
+  /* Water indicator */
+  .water-indicator {
+    position: absolute;
+    top: -10px;
+    left: -5px;
+    font-size: 16px;
+    cursor: pointer;
+    animation: bounce 1s infinite;
+    z-index: 2;
+  }
+  
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  /* Happiness meter */
+  .happiness-meter {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .happiness-level {
+    height: 100%;
+    transition: width 0.3s, background-color 0.3s;
+  }
+  
+  .grid-info {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Plant Selection */
+  .plant-selection {
+    margin-top: 20px;
+  }
+  
+  .plant-selection h3 {
+    margin-bottom: 15px;
+    color: var(--garden-dark);
+  }
+  
+  .plant-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .plant-item {
+    width: 100px;
+    height: 120px;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .plant-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .plant-item.selected {
+    border-color: var(--garden-primary);
+    background-color: var(--garden-light);
+    box-shadow: 0 5px 15px rgba(76,175,80,0.2);
+  }
+  
+  .plant-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+  
+  .plant-item .plant-name {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  
+  .plant-item .plant-per-foot {
+    font-size: 12px;
+    color: #666;
+    background-color: #f5f5f5;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  
+  /* Instructions Modal */
+  .instruction-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .instruction-content {
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  
+  .instruction-content h2 {
+    color: var(--garden-primary);
+    margin-bottom: 20px;
+  }
+  
+  .current-instruction {
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+    background-color: var(--garden-light);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .instruction-number {
+    width: 40px;
+    height: 40px;
+    background-color: var(--garden-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 15px;
+  }
+  
+  .instruction-text {
+    text-align: left;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  
+  .instruction-progress {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .progress-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ddd;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+  
+  .progress-dot.active {
+    background-color: var(--garden-primary);
+  }
+  
+  .dismiss-button {
+    background-color: var(--garden-primary);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+  }
+  
+  .dismiss-button:hover {
+    background-color: var(--garden-dark);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .garden-layout {
+      flex-direction: column;
+    }
+    
+    .game-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+    
+    .tab-button {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .garden-grid {
+      max-width: 100%;
+    }
+    
+    .plant-items {
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+    
+    .plant-item {
+      flex-shrink: 0;
+    }
+  }
+  
+  
